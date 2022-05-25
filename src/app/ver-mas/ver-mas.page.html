@@ -1,0 +1,63 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" no-border>
+    <ion-buttons slot="end">
+      <ion-button>
+        <img src="../../assets/events/perfil.png" alt="">
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="banner">
+    <img src="../../assets/sagradaFamilia.jpg" alt="">
+
+    <div class="caption ion-padding">
+      <!-- <h1>Bienvenid@!</h1> -->
+     
+    </div>
+
+    <div class="search">
+      <ion-item lines="none" class="ion-no-padding">
+        <ion-icon n-icon slot="start" name="search-outline"></ion-icon>
+        <!-- <ion-searchbar  placeholder="Buscar" animated (ionChange)="search($event)"></ion-searchbar> -->
+        <ion-input placeholder="Buscar evento" (ionChange)="search($event)"></ion-input>
+        <ion-icon  slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-item>
+
+      
+    </div>
+  </div>
+
+  <div class="title">
+    <h2>Eventos</h2>
+  </div>
+  
+  
+  
+  <div class="event-slider"  >
+    <ion-list>
+      <div >
+        <ion-item-sliding *ngFor="let sw of searched;">
+          <ion-item [routerLink]="['/evento',sw.eventId]">
+            <ion-label>
+              <h2><b>{{sw.name}}</b></h2>
+                <h3>{{sw.date}}</h3>
+                <p><b>{{sw.latitud}}</b> / <b>{{sw.longitud}}</b></p>
+            </ion-label>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option  class="button-assertive icon ion-trash-a" [routerLink]="['/evento',sw.eventId]">GO!</ion-item-option> 
+          </ion-item-options>
+        </ion-item-sliding>
+      </div>
+    </ion-list>
+  </div>
+
+
+
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="title">
+    <h4>REGISTRO</h4>
+    <p>¡Registrate para descubir nuevos hobbies! </p>
+  </div>
+
+  <ion-input [(ngModel)]="nombre" placeholder="Nombre" class="primary-input"></ion-input>
+  <ion-input [(ngModel)]="ciudad" placeholder="Ciudad" class="primary-input"></ion-input>
+  <ion-input [(ngModel)]="pais" placeholder="Pais" class="primary-input"></ion-input>
+  <ion-input [(ngModel)]="password" placeholder="Password" type="password" class="primary-input"></ion-input>
+
+
+  <div class="ion-margin-top">
+    <ion-button expand="block" (click)="register()">REGISTRARSE</ion-button>
+  </div>
+
+  <div class="ion-margin-top ion-text-center">
+    <a (click)="dismiss()">CERRAR</a>
+  </div>
+</ion-content>

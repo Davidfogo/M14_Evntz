@@ -1,0 +1,76 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" no-border>
+    <ion-buttons slot="end">
+      <ion-button>
+        <img src="../../assets/events/perfil.png" alt="">
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="banner">
+    <img src="../../assets/sagradaFamilia.jpg" alt="">
+
+    <div class="caption ion-padding">
+      <!-- <h1>Bienvenid@!</h1> -->
+     
+    </div>
+
+    <div class="search">
+      <ion-item lines="none" class="ion-no-padding">
+        <ion-icon slot="start" name="search-outline"></ion-icon>
+        <ion-input placeholder="Buscar evento" (ionChange)="search($event)"></ion-input>
+        <ion-icon  slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-item>
+    </div>
+  </div>
+
+  <div class="title">
+    <h2>Eventos</h2>
+    <p (click)="verMas()" >ver más</p>
+  </div>
+  
+  
+  
+  <div class="event-slider" >
+    <ion-slides [options]="option" class="ion-margin-top"> 
+      <ion-slide *ngFor="let sw of events;">
+        <ion-col class="ion-text-left" >
+          <ion-card [routerLink]="['/evento',sw.eventId]">
+            <ion-card-header class="ion-no-padding">
+              <img src="../../assets/events/running.jpg" />
+            </ion-card-header>
+
+            <ion-card-content >
+              <p class="date">{{sw.date}}</p>
+              <h2 class="eventname">{{sw.name}}</h2>
+              <p class="location"><ion-icon name="location"></ion-icon>{{sw.latitud}}/{{sw.longitud}}</p>
+              <!-- <p>{{sw.description}}</p> -->
+
+              <!-- <div class="additional-info">
+                <div class="attendees">
+                  <img src="../../assets/events/woman2.png" />
+                  <img src="../../assets/events/man2.png" />
+                </div>
+              </div> -->
+
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  
+    <div id="map"></div>
+  
+
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button (click)="showAlert()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
